@@ -1,0 +1,24 @@
+//
+//  SecondViewController.m
+//  Retrogram
+//
+//  Created by Kyle Yoon on 10/27/14.
+//  Copyright (c) 2014 yoonapps. All rights reserved.
+//
+
+#import "ExploreViewController.h"
+
+@interface ExploreViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@end
+
+@implementation ExploreViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"Loaded Explore");
+}
+
+
+@end
