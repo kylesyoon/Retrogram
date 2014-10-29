@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "Photo.h"
+#import "RGPhoto.h"
 #import "ProfileCollectionViewCell.h"
 
 
@@ -31,7 +31,7 @@
 }
 
 - (void)queryMyPhotos {
-    PFQuery *queryMyPhotos = [Photo query];
+    PFQuery *queryMyPhotos = [RGPhoto query];
     [queryMyPhotos findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"%@", error);

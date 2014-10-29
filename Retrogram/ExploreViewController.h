@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RGPhoto.h"
+#import "RGUser.h"
+#import <Parse/Parse.h>
 
 @interface ExploreViewController : UIViewController
 

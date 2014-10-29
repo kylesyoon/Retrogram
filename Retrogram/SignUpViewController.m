@@ -23,7 +23,7 @@
 
 - (IBAction)onSignUpButtonPressed:(id)sender {
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""]) {
-        PFUser *user = [PFUser user];
+        RGUser *user = [RGUser user];
         user.username = self.usernameTextField.text;
         user.password = self.passwordTextField.text;
         user.email = self.emailTextField.text;
@@ -35,13 +35,12 @@
             } else {
                 //Alert user sign up was successful.
                 NSLog(@"Sign up successful");
-                [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
+                [RGUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
                     if (error) {
                         NSLog(@"%@", error);
                         //Alert user log in was not successful.
                     } else {
                         NSLog(@"Successful login");
-                        self.loggedInUser = user;
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }
                 }];

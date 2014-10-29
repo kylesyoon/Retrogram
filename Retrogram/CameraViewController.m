@@ -8,7 +8,7 @@
 
 #import "CameraViewController.h"
 #import <Parse/Parse.h>
-#import "Photo.h"
+#import "RGPhoto.h"
 #import "NewsFeedViewController.h"
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -45,9 +45,9 @@
 - (void)savePickedImage:(UIImage *)image {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.1f);
     PFFile *imageFile = [PFFile fileWithName:@"testing.jpg" data:imageData];
-    Photo *photo = [Photo object];
+    RGPhoto *photo = [RGPhoto object];
     photo.imageFile = imageFile;
-    photo.poster = [PFUser currentUser];
+    photo.poster = [RGUser currentUser];
     [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"%@", error);

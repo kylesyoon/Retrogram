@@ -7,8 +7,9 @@
 //
 
 #import "NewsFeedViewController.h"
-#import "Photo.h"
+#import "RGPhoto.h"
 #import "FullPostCollectionViewCell.h"
+#import "UserViewController.h"
 
 @interface NewsFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -25,7 +26,7 @@
     [super viewDidAppear:YES];
     NSLog(@"NewsFeed viewDidAppear");
     
-    if ([PFUser currentUser]) {
+    if ([RGUser currentUser]) {
         [self queryForPhotos];
     }
     
@@ -34,8 +35,8 @@
 }
 
 - (void)queryForPhotos {
-    PFQuery *queryPhotos = [Photo query];
-    [queryPhotos whereKey:@"poster" equalTo:[PFUser currentUser]];
+    PFQuery *queryPhotos = [RGPhoto query];
+    [queryPhotos whereKey:@"poster" equalTo:[RGUser currentUser]];
     [queryPhotos includeKey:@"poster"];
     [queryPhotos orderByDescending:@"createdAt"];
     [queryPhotos findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -54,13 +55,22 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FullPostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NewsCell" forIndexPath:indexPath];
-    Photo *photo = [self.newsFeedPhotos objectAtIndex:indexPath.row];
-    cell.usernameLabel.text = photo.poster.username;
+    RGPhoto *photo = [self.newsFeedPhotos objectAtIndex:indexPath.row];
+    [cell.usernameButton setTitle:photo.poster.username forState:UIControlStateNormal];
     cell.timestampLabel.text = [self.dateFormatter stringFromDate:photo.createdAt];
     [photo.imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         cell.imageView.image = [UIImage imageWithData:data];
     }];
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"seeUserSegue"]) {
+        NSLog(@"Prepared for seeUserSegue");
+        UserViewController *userViewController = segue.destinationViewController;
+        NSIndexPath *selectedIndexPath = [self.collectionView.indexPathsForSelectedItems firstObject];
+        userViewController.username = [[[self.newsFeedPhotos objectAtIndex:selectedIndexPath.row] poster] username];
+    }
 }
 
 @end

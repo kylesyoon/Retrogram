@@ -18,8 +18,7 @@
 		5146035719FEDB7F00782C02 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146035619FEDB7F00782C02 /* CameraViewController.m */; };
 		5146035A19FEDB8B00782C02 /* ActivityFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146035919FEDB8B00782C02 /* ActivityFeedViewController.m */; };
 		5146035D19FEDB9500782C02 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146035C19FEDB9500782C02 /* ProfileViewController.m */; };
-		5146036019FEE07B00782C02 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146035F19FEE07B00782C02 /* Photo.m */; };
-		5146036419FEE27700782C02 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146036319FEE27700782C02 /* User.m */; };
+		5146036019FEE07B00782C02 /* RGPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146035F19FEE07B00782C02 /* RGPhoto.m */; };
 		5146036719FEFDB000782C02 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5146036519FEFDB000782C02 /* Bolts.framework */; };
 		5146036819FEFDB100782C02 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5146036619FEFDB000782C02 /* Parse.framework */; };
 		5146037419FEFE0A00782C02 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5146036919FEFE0A00782C02 /* Accounts.framework */; };
@@ -38,6 +37,10 @@
 		51FEACFD1A0009E800A212D8 /* FullPostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEACFC1A0009E800A212D8 /* FullPostCollectionViewCell.m */; };
 		51FEAD001A0029BF00A212D8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEACFF1A0029BF00A212D8 /* LoginViewController.m */; };
 		51FEAD031A0029CE00A212D8 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEAD021A0029CE00A212D8 /* SignUpViewController.m */; };
+		51FEAD411A0155FA00A212D8 /* RGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEAD401A0155FA00A212D8 /* RGUser.m */; };
+		51FEAD451A01682A00A212D8 /* ExploreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEAD441A01682A00A212D8 /* ExploreCollectionViewCell.m */; };
+		51FEAD481A016BFC00A212D8 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEAD471A016BFC00A212D8 /* UserViewController.m */; };
+		51FEAD4B1A017AC800A212D8 /* IndividualPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FEAD4A1A017AC800A212D8 /* IndividualPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +75,8 @@
 		5146035919FEDB8B00782C02 /* ActivityFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedViewController.m; sourceTree = "<group>"; };
 		5146035B19FEDB9500782C02 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		5146035C19FEDB9500782C02 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		5146035E19FEE07B00782C02 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		5146035F19FEE07B00782C02 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		5146036219FEE27700782C02 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		5146036319FEE27700782C02 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5146035E19FEE07B00782C02 /* RGPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGPhoto.h; sourceTree = "<group>"; };
+		5146035F19FEE07B00782C02 /* RGPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGPhoto.m; sourceTree = "<group>"; };
 		5146036519FEFDB000782C02 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5146036619FEFDB000782C02 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5146036919FEFE0A00782C02 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -98,6 +99,14 @@
 		51FEACFF1A0029BF00A212D8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		51FEAD011A0029CE00A212D8 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		51FEAD021A0029CE00A212D8 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		51FEAD3F1A0155FA00A212D8 /* RGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGUser.h; sourceTree = "<group>"; };
+		51FEAD401A0155FA00A212D8 /* RGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGUser.m; sourceTree = "<group>"; };
+		51FEAD431A01682A00A212D8 /* ExploreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreCollectionViewCell.h; sourceTree = "<group>"; };
+		51FEAD441A01682A00A212D8 /* ExploreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreCollectionViewCell.m; sourceTree = "<group>"; };
+		51FEAD461A016BFC00A212D8 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		51FEAD471A016BFC00A212D8 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		51FEAD491A017AC800A212D8 /* IndividualPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualPhotoViewController.h; sourceTree = "<group>"; };
+		51FEAD4A1A017AC800A212D8 /* IndividualPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,18 +167,19 @@
 				51FEAD041A0029D200A212D8 /* Login/Signup */,
 				5146033319FED8A500782C02 /* NewsFeedViewController.h */,
 				5146033419FED8A500782C02 /* NewsFeedViewController.m */,
-				51FEACFB1A0009E800A212D8 /* FullPostCollectionViewCell.h */,
-				51FEACFC1A0009E800A212D8 /* FullPostCollectionViewCell.m */,
 				5146033619FED8A500782C02 /* ExploreViewController.h */,
 				5146033719FED8A500782C02 /* ExploreViewController.m */,
+				51FEAD491A017AC800A212D8 /* IndividualPhotoViewController.h */,
+				51FEAD4A1A017AC800A212D8 /* IndividualPhotoViewController.m */,
 				5146035519FEDB7F00782C02 /* CameraViewController.h */,
 				5146035619FEDB7F00782C02 /* CameraViewController.m */,
 				5146035819FEDB8B00782C02 /* ActivityFeedViewController.h */,
 				5146035919FEDB8B00782C02 /* ActivityFeedViewController.m */,
 				5146035B19FEDB9500782C02 /* ProfileViewController.h */,
 				5146035C19FEDB9500782C02 /* ProfileViewController.m */,
-				5146089919FF32DB00782C02 /* ProfileCollectionViewCell.h */,
-				5146089A19FF32DB00782C02 /* ProfileCollectionViewCell.m */,
+				51FEAD461A016BFC00A212D8 /* UserViewController.h */,
+				51FEAD471A016BFC00A212D8 /* UserViewController.m */,
+				51FEAD421A0167F700A212D8 /* Cells */,
 				5146036119FEE25D00782C02 /* Model */,
 				5146033919FED8A500782C02 /* Main.storyboard */,
 				5146033C19FED8A500782C02 /* Images.xcassets */,
@@ -222,10 +232,10 @@
 		5146036119FEE25D00782C02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5146035E19FEE07B00782C02 /* Photo.h */,
-				5146035F19FEE07B00782C02 /* Photo.m */,
-				5146036219FEE27700782C02 /* User.h */,
-				5146036319FEE27700782C02 /* User.m */,
+				5146035E19FEE07B00782C02 /* RGPhoto.h */,
+				5146035F19FEE07B00782C02 /* RGPhoto.m */,
+				51FEAD3F1A0155FA00A212D8 /* RGUser.h */,
+				51FEAD401A0155FA00A212D8 /* RGUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -239,6 +249,19 @@
 				51FEAD021A0029CE00A212D8 /* SignUpViewController.m */,
 			);
 			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		51FEAD421A0167F700A212D8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				51FEACFB1A0009E800A212D8 /* FullPostCollectionViewCell.h */,
+				51FEACFC1A0009E800A212D8 /* FullPostCollectionViewCell.m */,
+				5146089919FF32DB00782C02 /* ProfileCollectionViewCell.h */,
+				5146089A19FF32DB00782C02 /* ProfileCollectionViewCell.m */,
+				51FEAD431A01682A00A212D8 /* ExploreCollectionViewCell.h */,
+				51FEAD441A01682A00A212D8 /* ExploreCollectionViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,17 +367,20 @@
 			files = (
 				5146089B19FF32DB00782C02 /* ProfileCollectionViewCell.m in Sources */,
 				5146035719FEDB7F00782C02 /* CameraViewController.m in Sources */,
+				51FEAD451A01682A00A212D8 /* ExploreCollectionViewCell.m in Sources */,
 				5146033819FED8A500782C02 /* ExploreViewController.m in Sources */,
-				5146036419FEE27700782C02 /* User.m in Sources */,
 				5146033219FED8A500782C02 /* AppDelegate.m in Sources */,
 				5146033519FED8A500782C02 /* NewsFeedViewController.m in Sources */,
+				51FEAD481A016BFC00A212D8 /* UserViewController.m in Sources */,
 				51FEACFD1A0009E800A212D8 /* FullPostCollectionViewCell.m in Sources */,
-				5146036019FEE07B00782C02 /* Photo.m in Sources */,
+				5146036019FEE07B00782C02 /* RGPhoto.m in Sources */,
 				51FEAD001A0029BF00A212D8 /* LoginViewController.m in Sources */,
 				5146035D19FEDB9500782C02 /* ProfileViewController.m in Sources */,
 				5146032F19FED8A500782C02 /* main.m in Sources */,
+				51FEAD4B1A017AC800A212D8 /* IndividualPhotoViewController.m in Sources */,
 				51FEAD031A0029CE00A212D8 /* SignUpViewController.m in Sources */,
 				5146035A19FEDB8B00782C02 /* ActivityFeedViewController.m in Sources */,
+				51FEAD411A0155FA00A212D8 /* RGUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

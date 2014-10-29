@@ -25,7 +25,7 @@
 }
 
 - (IBAction)onLoginButtonPressed:(id)sender {
-    [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
+    [RGUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
             //Alert user log in was not successful.
