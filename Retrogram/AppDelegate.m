@@ -21,13 +21,20 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarIdentifier"];
-    UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifier"];
+    UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavIdentifier"];
     
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
-    //Currently just showing login everytime, need to get session so user doesn't have to log in everytime (until log out)
-    [tabBarController presentViewController:loginViewController animated:YES completion:nil];
     
+    PFUser *currentUser = [PFUser currentUser];
+    NSLog(@"The current user is: %@", currentUser);
+    //Currently just showing login everytime, need to get session so user doesn't have to log in everytime (until log out)
+    if (currentUser) {
+        NSLog(@"Logging in as: %@", currentUser);
+    } else {
+        [tabBarController presentViewController:loginNavigationController animated:YES completion:nil];
+        NSLog(@"Current user is empty: %@", currentUser);
+    }
     return YES;
 }
 

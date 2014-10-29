@@ -52,5 +52,14 @@
     return cell;
 }
 
+- (IBAction)logOutButtonPressed:(id)sender {
+    [PFUser logOut];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UINavigationController *loginNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavIdentifier"];
+    [self presentViewController:loginNavigationController animated:YES completion:^{
+        NSLog(@"Successful log out of user: %@", [PFUser currentUser]);
+    }];
+}
+
 
 @end

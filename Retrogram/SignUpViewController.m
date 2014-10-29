@@ -18,11 +18,7 @@
 @implementation SignUpViewController
 
 - (void)viewDidLoad {
-[super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    [super viewDidLoad];
 }
 
 - (IBAction)onSignUpButtonPressed:(id)sender {
@@ -46,7 +42,7 @@
                     } else {
                         NSLog(@"Successful login");
                         self.loggedInUser = user;
-                        [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+                        [self dismissViewControllerAnimated:YES completion:nil];
                     }
                 }];
             }

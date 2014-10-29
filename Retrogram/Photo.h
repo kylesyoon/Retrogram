@@ -13,9 +13,5 @@
 
 @property PFFile *imageFile;
 @property PFUser *poster;
-//@property User *poster;
-//@property NSArray *usersWhoLiked;
-
-
 
 @end

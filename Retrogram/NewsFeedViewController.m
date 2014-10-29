@@ -21,11 +21,13 @@
 
 @implementation NewsFeedViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    NSLog(@"Loaded News Feed");
-    [self queryForPhotos];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    NSLog(@"NewsFeed viewDidAppear");
     
+    if ([PFUser currentUser]) {
+        [self queryForPhotos];
+    }
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];

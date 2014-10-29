@@ -88,14 +88,14 @@
                     <navigationItem key="navigationItem" id="CmF-KO-jBx"/>
                     <connections>
                         <outlet property="collectionView" destination="TbK-15-xyP" id="p7b-8a-mTw"/>
-                        <segue destination="bes-W6-zns" kind="presentation" identifier="loginSegue" id="d90-VQ-K5e"/>
+                        <segue destination="Eef-RE-Vkq" kind="presentation" identifier="loginSegue" id="d90-VQ-K5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1383" y="-1748"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="HPY-lo-iB3">
             <objects>
                 <viewController storyboardIdentifier="LoginIdentifier" id="bes-W6-zns" customClass="LoginViewController" sceneMemberID="viewController">
@@ -122,7 +122,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ekb-jJ-fEo" kind="show" identifier="signupSegue" id="eRu-8W-Zm9"/>
+                                    <segue destination="Ekb-jJ-fEo" kind="show" id="fsq-s6-xxP"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-zi-WZy">
@@ -149,9 +149,10 @@
                             <constraint firstAttribute="centerX" secondItem="P7k-J5-xyA" secondAttribute="centerX" id="fxf-8I-gJz"/>
                             <constraint firstItem="ZyF-XW-D8T" firstAttribute="top" secondItem="P7k-J5-xyA" secondAttribute="bottom" constant="20" id="wL0-jE-zrF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ti2-zi-WZy" secondAttribute="trailing" constant="51" id="yPR-wN-P69"/>
-                            <constraint firstItem="ti2-zi-WZy" firstAttribute="top" secondItem="bVT-Tg-kIf" secondAttribute="bottom" constant="88" id="zNY-DW-rxC"/>
+                            <constraint firstItem="ti2-zi-WZy" firstAttribute="top" secondItem="bVT-Tg-kIf" secondAttribute="bottom" constant="44" id="zNY-DW-rxC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="3ih-Ic-4ST"/>
                     <connections>
                         <outlet property="passwordTextField" destination="cft-1k-914" id="4Hv-CJ-Eed"/>
                         <outlet property="usernameTextField" destination="ti2-zi-WZy" id="55a-Vf-0Bf"/>
@@ -159,9 +160,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gH1-w1-F7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="-1748"/>
+            <point key="canvasLocation" x="2895" y="-1748"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign up-->
         <scene sceneID="pcw-0w-uoJ">
             <objects>
                 <viewController id="Ekb-jJ-fEo" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -200,34 +201,24 @@
                                     <action selector="onSignUpButtonPressed:" destination="Ekb-jJ-fEo" eventType="touchUpInside" id="UvA-K1-x6u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-xK-71P">
-                                <rect key="frame" x="16" y="28" width="35" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bes-W6-zns" kind="show" id="4es-4M-rLu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uXG-xK-71P" firstAttribute="leading" secondItem="ZFm-kv-oSw" secondAttribute="leadingMargin" id="2IO-cp-Q4R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TrQ-km-vdI" secondAttribute="trailing" constant="51" id="2LZ-jA-ZZ2"/>
                             <constraint firstItem="rVE-4O-ZUj" firstAttribute="leading" secondItem="ZFm-kv-oSw" secondAttribute="leadingMargin" constant="51" id="AVr-Sv-1gP"/>
                             <constraint firstItem="TrQ-km-vdI" firstAttribute="top" secondItem="GIl-eU-66n" secondAttribute="bottom" constant="18" id="DHK-7s-R9J"/>
                             <constraint firstItem="rVE-4O-ZUj" firstAttribute="top" secondItem="TrQ-km-vdI" secondAttribute="bottom" constant="23" id="FPv-3o-kIf"/>
                             <constraint firstItem="TrQ-km-vdI" firstAttribute="top" secondItem="GIl-eU-66n" secondAttribute="bottom" constant="18" id="JN6-bg-1R9"/>
-                            <constraint firstItem="uXG-xK-71P" firstAttribute="top" secondItem="YHO-1t-A68" secondAttribute="bottom" constant="8" id="Le9-JG-Fhg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rVE-4O-ZUj" secondAttribute="trailing" constant="51" id="aX8-yA-RTd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GIl-eU-66n" secondAttribute="trailing" constant="51" id="cfH-xX-a4n"/>
                             <constraint firstItem="GIl-eU-66n" firstAttribute="leading" secondItem="ZFm-kv-oSw" secondAttribute="leadingMargin" constant="51" id="gCb-97-xbG"/>
-                            <constraint firstItem="GIl-eU-66n" firstAttribute="top" secondItem="YHO-1t-A68" secondAttribute="bottom" constant="89" id="qvn-VY-x4x"/>
+                            <constraint firstItem="GIl-eU-66n" firstAttribute="top" secondItem="YHO-1t-A68" secondAttribute="bottom" constant="45" id="qvn-VY-x4x"/>
                             <constraint firstAttribute="centerX" secondItem="htH-xl-zqw" secondAttribute="centerX" id="szI-lE-jQS"/>
                             <constraint firstItem="TrQ-km-vdI" firstAttribute="leading" secondItem="ZFm-kv-oSw" secondAttribute="leadingMargin" constant="51" id="xWW-fL-nP7"/>
                             <constraint firstItem="htH-xl-zqw" firstAttribute="top" secondItem="rVE-4O-ZUj" secondAttribute="bottom" constant="45" id="yby-Fq-y9y"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Sign up" id="9cm-c6-Edr"/>
                     <connections>
                         <outlet property="emailTextField" destination="rVE-4O-ZUj" id="zWn-cW-pIH"/>
                         <outlet property="passwordTextField" destination="TrQ-km-vdI" id="Lss-G8-o6g"/>
@@ -236,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9J-kB-2Kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2773" y="-1748"/>
+            <point key="canvasLocation" x="3585" y="-1748"/>
         </scene>
         <!--Explore View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -519,7 +510,13 @@
                             <constraint firstItem="l0W-5K-7Aw" firstAttribute="centerY" secondItem="oNi-uu-Clp" secondAttribute="centerY" id="tKx-M0-mM8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="K8H-Mr-2WD"/>
+                    <navigationItem key="navigationItem" id="K8H-Mr-2WD">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="9Te-Gq-Pna">
+                            <connections>
+                                <action selector="logOutButtonPressed:" destination="M8Z-YL-oSs" id="UgK-A4-fSm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="WcW-du-o24" id="6DE-GS-9eQ"/>
                         <outlet property="followersCountLabel" destination="l0W-5K-7Aw" id="0Pd-VQ-730"/>
@@ -607,12 +604,27 @@
             </objects>
             <point key="canvasLocation" x="716" y="1052"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="trj-gF-vTf">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNavIdentifier" automaticallyAdjustsScrollViewInsets="NO" id="Eef-RE-Vkq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F19-6M-wcd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bes-W6-zns" kind="relationship" relationship="rootViewController" id="M8i-UH-eog"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBD-YD-0LX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2083" y="-1748"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="d90-VQ-K5e"/>
-    </inferredMetricsTieBreakers>
 </document>
