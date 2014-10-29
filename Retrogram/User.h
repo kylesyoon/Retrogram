@@ -7,17 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-@interface User : NSObject
+@interface User : PFUser <PFSubclassing>
 
-@property NSString *username;
-//@property NSString *password;
-@property NSString *email;
-@property NSArray *myPhotos;
-@property NSArray *likedPhotos;
-@property NSArray *myFollowers;
-@property NSArray *usersIFollow;
-
-- (instancetype)initWithUsername:(NSString *)username;
+//@property NSArray *myPhotos;
+//@property NSArray *likedPhotos;
+//@property NSArray *myFollowers;
+//@property NSArray *usersIFollow;
 
 @end

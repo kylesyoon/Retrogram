@@ -7,14 +7,16 @@
 //
 
 #import "User.h"
+#import <Parse/PFUser.h>
 
 @implementation User
+//@dynamic myPhotos;
+//@dynamic likedPhotos;
+//@dynamic myFollowers;
+//@dynamic usersIFollow;
 
-- (instancetype)initWithUsername:(NSString *)username {
-    self = [super init];
-    self.username = username;
-    
-    return self;
++ (void)load {
+    [self registerSubclass];
 }
 
 @end

@@ -18,6 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Parse setApplicationId:@"lhT9WafEoj8Tq0ZqWtLMbkmTrp8XqYzJtaLdbNmA" clientKey:@"Yki4NcF1DgsxoAXtHb7Evx6DRdAlA9FWF46dZopw"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarIdentifier"];
+    UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifier"];
+    
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    //Currently just showing login everytime, need to get session so user doesn't have to log in everytime (until log out)
+    [tabBarController presentViewController:loginViewController animated:YES completion:nil];
+    
     return YES;
 }
 

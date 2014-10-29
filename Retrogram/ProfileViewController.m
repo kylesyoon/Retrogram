@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingCountLabek;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property NSArray *myPhotos;
+@property NSArray *profilePhotos;
 
 
 @end
@@ -27,22 +27,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Loaded Profile");
-    
-    [Photo retrieveUserPhotosWithCompletion:^(NSArray *photoArray) {
-        self.myPhotos = photoArray;
-        [self.collectionView reloadData];
+
+}
+
+- (void)queryMyPhotos {
+    PFQuery *queryMyPhotos = [Photo query];
+    [queryMyPhotos findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            self.profilePhotos = objects;
+            [self.collectionView reloadData];
+        }
     }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return self.profilePhotos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
-    Photo *myPhoto = [self.myPhotos objectAtIndex:indexPath.row];
-    
-    cell.imageView.image = myPhoto.image;
     
     return cell;
 }
