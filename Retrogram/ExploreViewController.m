@@ -59,13 +59,6 @@
     return cell;
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-//    RGPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
-//    RGUser *user = photo.poster;
-//    RGUser *currentUser = [RGUser currentUser];
-//    currentUser.following = [NSArray arrayWithObject:user];
-//    [currentUser saveInBackground];
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"photoSegue"]) {

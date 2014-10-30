@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511D33CD1A0199DE00298E0E /* RGFollowing.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D33CC1A0199DE00298E0E /* RGFollowing.m */; };
+		511D33D01A025E7400298E0E /* RGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D33CF1A025E7400298E0E /* RGComment.m */; };
+		511D33D31A0260F100298E0E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D33D21A0260F100298E0E /* CommentViewController.m */; };
 		5146032F19FED8A500782C02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146032E19FED8A500782C02 /* main.m */; };
 		5146033219FED8A500782C02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146033119FED8A500782C02 /* AppDelegate.m */; };
 		5146033519FED8A500782C02 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5146033419FED8A500782C02 /* NewsFeedViewController.m */; };
@@ -54,6 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		511D33CB1A0199DE00298E0E /* RGFollowing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFollowing.h; sourceTree = "<group>"; };
+		511D33CC1A0199DE00298E0E /* RGFollowing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGFollowing.m; sourceTree = "<group>"; };
+		511D33CE1A025E7400298E0E /* RGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGComment.h; sourceTree = "<group>"; };
+		511D33CF1A025E7400298E0E /* RGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGComment.m; sourceTree = "<group>"; };
+		511D33D11A0260F100298E0E /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		511D33D21A0260F100298E0E /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		5146032919FED8A500782C02 /* Retrogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Retrogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5146032D19FED8A500782C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5146032E19FED8A500782C02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -171,6 +180,8 @@
 				5146033719FED8A500782C02 /* ExploreViewController.m */,
 				51FEAD491A017AC800A212D8 /* IndividualPhotoViewController.h */,
 				51FEAD4A1A017AC800A212D8 /* IndividualPhotoViewController.m */,
+				511D33D11A0260F100298E0E /* CommentViewController.h */,
+				511D33D21A0260F100298E0E /* CommentViewController.m */,
 				5146035519FEDB7F00782C02 /* CameraViewController.h */,
 				5146035619FEDB7F00782C02 /* CameraViewController.m */,
 				5146035819FEDB8B00782C02 /* ActivityFeedViewController.h */,
@@ -232,6 +243,10 @@
 		5146036119FEE25D00782C02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				511D33CE1A025E7400298E0E /* RGComment.h */,
+				511D33CF1A025E7400298E0E /* RGComment.m */,
+				511D33CB1A0199DE00298E0E /* RGFollowing.h */,
+				511D33CC1A0199DE00298E0E /* RGFollowing.m */,
 				5146035E19FEE07B00782C02 /* RGPhoto.h */,
 				5146035F19FEE07B00782C02 /* RGPhoto.m */,
 				51FEAD3F1A0155FA00A212D8 /* RGUser.h */,
@@ -313,6 +328,7 @@
 				TargetAttributes = {
 					5146032819FED8A500782C02 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = EG77NM7886;
 					};
 					5146034419FED8A500782C02 = {
 						CreatedOnToolsVersion = 6.1;
@@ -365,11 +381,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511D33D31A0260F100298E0E /* CommentViewController.m in Sources */,
+				511D33CD1A0199DE00298E0E /* RGFollowing.m in Sources */,
 				5146089B19FF32DB00782C02 /* ProfileCollectionViewCell.m in Sources */,
 				5146035719FEDB7F00782C02 /* CameraViewController.m in Sources */,
 				51FEAD451A01682A00A212D8 /* ExploreCollectionViewCell.m in Sources */,
 				5146033819FED8A500782C02 /* ExploreViewController.m in Sources */,
 				5146033219FED8A500782C02 /* AppDelegate.m in Sources */,
+				511D33D01A025E7400298E0E /* RGComment.m in Sources */,
 				5146033519FED8A500782C02 /* NewsFeedViewController.m in Sources */,
 				51FEAD481A016BFC00A212D8 /* UserViewController.m in Sources */,
 				51FEACFD1A0009E800A212D8 /* FullPostCollectionViewCell.m in Sources */,
@@ -504,6 +523,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Retrogram",
@@ -515,6 +536,7 @@
 				INFOPLIST_FILE = Retrogram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -522,6 +544,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Retrogram",
@@ -533,6 +557,7 @@
 				INFOPLIST_FILE = Retrogram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

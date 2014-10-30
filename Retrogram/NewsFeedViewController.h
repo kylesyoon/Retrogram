@@ -12,7 +12,7 @@
 
 @interface NewsFeedViewController : UIViewController
 
-- (void)queryForPhotos;
+- (void)queryMyPhotosAndFollowedUsersPhotos;
 
 @end
 

@@ -8,8 +8,9 @@
 
 #import "NewsFeedViewController.h"
 #import "RGPhoto.h"
+#import "RGFollowing.h"
 #import "FullPostCollectionViewCell.h"
-#import "UserViewController.h"
+#import "IndividualPhotoViewController.h"
 
 @interface NewsFeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -17,6 +18,7 @@
 @property NSArray *newsFeedPhotos;
 @property NSMutableArray *usernames;
 @property NSDateFormatter *dateFormatter;
+@property UITapGestureRecognizer *doubleTapGesture;
 
 @end
 
@@ -25,26 +27,47 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     NSLog(@"NewsFeed viewDidAppear");
-    
-    if ([RGUser currentUser]) {
-        [self queryForPhotos];
-    }
-    
+    self.collectionView.allowsMultipleSelection = NO;
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
+    
+    //Had issue of querying when login modal is presented, causing crash. So only query when logged in.
+    if ([RGUser currentUser]) {
+        [self queryMyPhotosAndFollowedUsersPhotos];
+    }
 }
 
-- (void)queryForPhotos {
-    PFQuery *queryPhotos = [RGPhoto query];
-    [queryPhotos whereKey:@"poster" equalTo:[RGUser currentUser]];
-    [queryPhotos includeKey:@"poster"];
-    [queryPhotos orderByDescending:@"createdAt"];
-    [queryPhotos findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+- (void)queryMyPhotosAndFollowedUsersPhotos {
+    //Querying following objects where current user is the follower.
+    PFQuery *query = [RGFollowing query];
+    [query includeKey:@"followedUser"];
+    [query whereKey:@"followingUser" equalTo:[RGUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
         } else {
-            self.newsFeedPhotos = objects;
-            [self.collectionView reloadData];
+            //Upon successful query, query for photos of current user and the people current user is following.
+            PFQuery *queryPhotos = [RGPhoto query];
+            NSMutableArray *users = [NSMutableArray arrayWithObject:[RGUser currentUser]];
+            for (RGFollowing *following in objects) {
+                [users addObject:following.followedUser];
+                //Adding users that current user is following...
+            }
+            //Got the array of users I need.
+            NSArray *findUsers = [NSArray arrayWithArray:users];
+            //Querying the photos of these users, and then ordering by recent.
+            [queryPhotos whereKey:@"poster" containedIn:findUsers];
+            [queryPhotos includeKey:@"poster"]; //Need user object in order to give property username.
+            [queryPhotos orderByDescending:@"createdAt"];
+            [queryPhotos findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (error) {
+                    NSLog(@"%@", error);
+                } else {
+                    //Array of photos from users that current user follows as well as current user's ordered by recent.
+                    self.newsFeedPhotos = objects;
+                    [self.collectionView reloadData];
+                }
+            }];
         }
     }];
 }
@@ -56,21 +79,24 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FullPostCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NewsCell" forIndexPath:indexPath];
     RGPhoto *photo = [self.newsFeedPhotos objectAtIndex:indexPath.row];
-    [cell.usernameButton setTitle:photo.poster.username forState:UIControlStateNormal];
+    cell.usernameLabel.text = photo.poster.username;
     cell.timestampLabel.text = [self.dateFormatter stringFromDate:photo.createdAt];
+    //Converting PFFile into NSData
     [photo.imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        cell.imageView.image = [UIImage imageWithData:data];
+        cell.imageView.image = [UIImage imageWithData:data]; //Converting NSData to UIImage.
     }];
+    
     return cell;
 }
-
+//Segue to individual photo view controller.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"seeUserSegue"]) {
-        NSLog(@"Prepared for seeUserSegue");
-        UserViewController *userViewController = segue.destinationViewController;
-        NSIndexPath *selectedIndexPath = [self.collectionView.indexPathsForSelectedItems firstObject];
-        userViewController.username = [[[self.newsFeedPhotos objectAtIndex:selectedIndexPath.row] poster] username];
+    if ([segue.identifier isEqualToString:@"photoSegue"]) {
+        IndividualPhotoViewController *individualPhotoViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.collectionView.indexPathsForSelectedItems firstObject];
+        //Passing the photo.
+        individualPhotoViewController.photo = [self.newsFeedPhotos objectAtIndex:indexPath.row];
     }
 }
+
 
 @end

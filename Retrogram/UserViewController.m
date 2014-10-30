@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "RGUser.h"
 #import "RGPhoto.h"
+#import "RGFollowing.h"
 #import "ProfileCollectionViewCell.h"
 
 
@@ -33,11 +34,25 @@
     [self queryUserWithUsername];
 }
 
+- (void)queryFollowersAndFollowing {
+    PFQuery *query = [RGFollowing query];
+    [query whereKey:@"followedUser" equalTo:self.selectedUser];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.followersCountLabel.text = [NSString stringWithFormat:@"%d", number];
+    }];
+    PFQuery *queryTwo = [RGFollowing query];
+    [queryTwo whereKey:@"followingUser" equalTo:self.selectedUser];
+    [queryTwo countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.followingCountLabel.text = [NSString stringWithFormat:@"%d", number];
+    }];
+}
+
 - (void)queryUserWithUsername {
     PFQuery *query = [RGUser query];
     [query whereKey:@"username" equalTo:self.username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.selectedUser = [objects firstObject];
+        [self queryFollowersAndFollowing];
         NSLog(@"Selected user is: %@", self.selectedUser.username);
         PFQuery *queryPhotos = [RGPhoto query];
         [queryPhotos whereKey:@"poster" equalTo:self.selectedUser];
@@ -52,9 +67,9 @@
 
 - (void)setUpUserDetails {
     self.navigationItem.title = self.selectedUser.username;
-    self.photoCountLabel.text = [NSString stringWithFormat:@"%li", self.selectedUserPhotos.count];
-    self.followersCountLabel.text = [NSString stringWithFormat:@"%li", self.selectedUser.followers.count];
-    self.followingCountLabel.text = [NSString stringWithFormat:@"%li", self.selectedUser.followers.count];
+    self.photoCountLabel.text = [NSString stringWithFormat:@"%li", (unsigned long)self.selectedUserPhotos.count];
+    self.followersCountLabel.text = [NSString stringWithFormat:@"%li", (unsigned long)self.selectedUser.followers.count];
+    self.followingCountLabel.text = [NSString stringWithFormat:@"%li", (unsigned long)self.selectedUser.followers.count];
     [self.followButton setBackgroundColor:[UIColor whiteColor]];
     [self.followButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.followButton setTitle:@"Follow" forState:UIControlStateNormal];
